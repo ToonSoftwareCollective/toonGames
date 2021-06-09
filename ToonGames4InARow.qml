@@ -17,7 +17,7 @@ Screen {
 
 // ---------------------------------------------------------------------
 
-    property string me          : "Toon 4 In A Row" 
+    property string me          : "                              Toon 4 In A Row\nPick a coin and drop it in the rack to get 4 in a row."
 
     property string colortxt    : "black"
     property string color0      : "green"
@@ -42,7 +42,8 @@ Screen {
     property int player2Score   : 0
     
     property int buttonHeight   : isNxt ? 40 : 32
-    property int buttonWidth    : isNxt ? 225 : 180
+//    property int buttonWidth    : isNxt ? 225 : 180
+    property int buttonWidth    : isNxt ? 200 : 160
 
     property int diskSize       : isNxt ? 50 : 40
     property int diskRadius     : diskSize / 2
@@ -416,7 +417,8 @@ Rectangle {
                 horizontalCenter: player1.horizontalCenter
             }
             pixelsizeoverride   : true
-           pixelsizeoverridesize: isNxt ? 50 : 40
+//           pixelsizeoverridesize: isNxt ? 50 : 40
+           pixelsizeoverridesize: isNxt ? 45 : 36
             visible             : player1Won
         }
 
@@ -490,7 +492,8 @@ Rectangle {
                 horizontalCenter: player2.horizontalCenter
             }
             pixelsizeoverride   : true
-           pixelsizeoverridesize: isNxt ? 50 : 40
+//           pixelsizeoverridesize: isNxt ? 50 : 40
+           pixelsizeoverridesize: isNxt ? 45 : 36
             visible             : player2Won
         }
         

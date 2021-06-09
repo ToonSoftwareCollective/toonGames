@@ -18,7 +18,7 @@ Screen {
 
 // ---------------------------------------------------------------------
 
-    property string me          : "TOon-Mem0ry!"
+    property string me          : "                                  TOon-Mem0ry!\nClick twice to check and click once to collect/put back."
 
     property string colortxt    : "black"
     property string color0      : "green"
@@ -33,7 +33,8 @@ Screen {
     property string player2Name : 'Player 2'
 
     property int buttonHeight   : isNxt ? 40 : 32
-    property int buttonWidth    : isNxt ? 225 : 180
+//    property int buttonWidth    : isNxt ? 225 : 180
+    property int buttonWidth    : isNxt ? 200 : 160
 
     property int player1Pairs   : 0
     property int player2Pairs   : 0
@@ -449,7 +450,8 @@ Screen {
                 horizontalCenter: player1.horizontalCenter
             }
             pixelsizeoverride   : true
-           pixelsizeoverridesize:  isNxt ? 50 : 40
+//           pixelsizeoverridesize: isNxt ? 50 : 40
+           pixelsizeoverridesize: isNxt ? 45 : 36
             visible             : player1Won
         }
 
@@ -532,7 +534,8 @@ Screen {
                 horizontalCenter: player2.horizontalCenter
             }
             pixelsizeoverride   : true
-           pixelsizeoverridesize:  isNxt ? 50 : 40
+//           pixelsizeoverridesize: isNxt ? 50 : 40
+           pixelsizeoverridesize: isNxt ? 45 : 36
             visible             : player2Won
         }
         

@@ -17,7 +17,7 @@ Screen {
 
 // ---------------------------------------------------------------------
 
-    property string me          : "Tic Tac Toon"
+    property string me          : "                         Tic Tac Toon\nPut markers in the fields to get 3 in a row."
     
     property string colortxt    : "black"
     property string color0      : "green"
@@ -44,7 +44,8 @@ Screen {
     property int player2Score   : 0
     
     property int buttonHeight   : isNxt ? 40 : 32
-    property int buttonWidth    : isNxt ? 225 : 180
+//    property int buttonWidth    : isNxt ? 225 : 180
+    property int buttonWidth    : isNxt ? 200 : 160
 
     property int fieldHeight    : isNxt ? 100 : 80
     property int fieldWidth     : isNxt ? 100 : 80
@@ -248,7 +249,8 @@ Screen {
                 horizontalCenter: player1.horizontalCenter
             }
             pixelsizeoverride   : true
-           pixelsizeoverridesize: isNxt ? 50 : 40
+//           pixelsizeoverridesize: isNxt ? 50 : 40
+           pixelsizeoverridesize: isNxt ? 45 : 36
             visible             : player1Won
         }
     
@@ -330,7 +332,8 @@ Screen {
                 horizontalCenter: player2.horizontalCenter
             }
             pixelsizeoverride   : true
-           pixelsizeoverridesize: isNxt ? 50 : 40
+//           pixelsizeoverridesize: isNxt ? 50 : 40
+           pixelsizeoverridesize: isNxt ? 45 : 36
             visible             : player2Won
         }
         

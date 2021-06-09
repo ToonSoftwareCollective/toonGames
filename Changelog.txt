@@ -1,3 +1,5 @@
+1.1.0
+- Balloon! for Toon 2, added by oepi-loepi
 1.0.0
 - by JackV
 - first release
