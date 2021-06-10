@@ -1,4 +1,4 @@
-### This Toon app gives you 7 games starting from 1 tile.
+### This Toon app gives you games starting from 1 tile.
 
 #### What ? Why would I want games on my Toon ?
 
@@ -14,7 +14,7 @@ There are several good reasons :
     - Hangman
     - Mines
     - Numbers
-    - Popping balloons
+    - Popping balloons ( available on Toon 2 only )
  - and more
  
 The reasons you would NOT want this app :

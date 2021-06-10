@@ -39,7 +39,7 @@ App {
         const args = {
             thumbCategory       : "general",
             thumbLabel          : "Toon Games",
-            thumbIcon           : "qrc:/tsc/BalloonsIcon.png",
+            thumbIcon           : "qrc:/tsc/BalloonIcon.png",
             thumbIconVAlignment : "center",
             thumbWeight         : 30
         }
