@@ -6,7 +6,7 @@ There are several good reasons :
 
  - it is possible
  - it is funny
- - you make like playing :
+ - you may like :
     - Tic Tac Toe
     - Slide
     - Memory
@@ -14,6 +14,7 @@ There are several good reasons :
     - Hangman
     - Mines
     - Numbers
+    - Popping balloons
  - and more
  
 The reasons you would NOT want this app :
@@ -30,4 +31,8 @@ You can install this app manually without ToonStore :
  - Restart the GUI. ( On your Toon go to > Settings > TSC > Restart GUI )
  - After that you can add a tile named 'Toon Games'
 
+Special thanks to :
+
+ - Oepi-loepi for contributing the Balloon game
+ 
 Thanks for reading and enjoy.

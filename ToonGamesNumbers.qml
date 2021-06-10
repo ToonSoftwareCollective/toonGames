@@ -24,7 +24,7 @@ Screen {
 
 // ---------------------------------------------------------------------
 
-    property string me          : "Numbers (select string of same and click collect)"
+    property string me          : "                                                        Toon Numbers\n      Collect snake of same numbers, last gets upgraded, others fall down."
     
     property string colortxt    : "black"
     property string color0      : "green"
@@ -52,12 +52,14 @@ Screen {
     property bool f40enabled ; property bool f41enabled ; property bool f42enabled ; property bool f43enabled ; property bool f44enabled
 
     property int buttonHeight   : isNxt ? 40 : 32
-    property int buttonWidth    : isNxt ? 150 : 120
+//    property int buttonWidth    : isNxt ? 150 : 120
+    property int buttonWidth    : isNxt ? 200 : 160
 
     property int margin         : isNxt ? 30 : 24
 
-    property int whiteBoxHeight : isNxt ? 450 : 360
-    property int whiteBoxWidth  : isNxt ? 550 : 440
+    property int whiteBoxHeight : isNxt ? 410 : 352
+//    property int whiteBoxWidth  : isNxt ? 550 : 440
+    property int whiteBoxWidth  : isNxt ? 450 : 360
 
     property int fieldMargin    : isNxt ? 10 : 8
 

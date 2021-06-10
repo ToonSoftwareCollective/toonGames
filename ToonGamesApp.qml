@@ -28,6 +28,9 @@ App {
     property url                toonGamesNumbersUrl     : "ToonGamesNumbers.qml"
     property ToonGamesNumbers   toonGamesNumbers
 
+    property url 		        toonGamesBalloonUrl 	: "ToonGamesBalloon.qml"
+    property ToonGamesBalloon   toonGamesBalloon
+
     property url                toonGamesInfoUrl        : "ToonGamesInfo.qml"
     property ToonGamesInfo      toonGamesInfo
 
@@ -36,7 +39,7 @@ App {
         const args = {
             thumbCategory       : "general",
             thumbLabel          : "Toon Games",
-            thumbIcon           : "qrc:/tsc/BalloonIcon.png",
+            thumbIcon           : "qrc:/tsc/BalloonsIcon.png",
             thumbIconVAlignment : "center",
             thumbWeight         : 30
         }
@@ -56,6 +59,8 @@ App {
         registry.registerWidget("screen", toonGamesMinesUrl,     this, "toonGamesMines");
 
         registry.registerWidget("screen", toonGamesNumbersUrl,   this, "toonGamesNumbers");
+        
+        registry.registerWidget("screen", toonGamesBalloonUrl,   this, "toonGamesBalloon");        
 
         registry.registerWidget("screen", toonGamesInfoUrl,      this, "toonGamesInfo");
 

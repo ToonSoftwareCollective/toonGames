@@ -17,7 +17,7 @@ Screen {
 
 // ---------------------------------------------------------------------
 
-    property string me          : "Toon Mines (flag 10th mine to win, hit bomb to lose)"
+    property string me          : "                                           Toon Mines\nMark 10th bomb with a flag to win, step on a bomb to lose."
 
     property string colortxt    : "black"
     property string color0      : "green"
@@ -30,12 +30,14 @@ Screen {
     property string player1Name : 'Player 1'
     property string player2Name : 'Player 2'
 
-    property int playerHeight   : isNxt ? 40 : 32
-    property int playerWidth    : isNxt ? 225 : 180
+    property int buttonHeight   : isNxt ? 40 : 32
+//    property int buttonWidth    : isNxt ? 225 : 180
+    property int buttonWidth    : isNxt ? 200 : 160
 
     property int winnerHeight   : isNxt ? 75 : 60
     property int playModeHeight : isNxt ? 75 : 60
-    property int playModeWidth  : isNxt ? 100 : 80
+//    property int playModeWidth  : isNxt ? 100 : 80
+    property int playModeWidth  : isNxt ? 90 : 72
 
     property int margin         : isNxt ? 30 : 24
 
@@ -380,8 +382,8 @@ Screen {
         YaLabel {
             id                  : player1
             buttonText          : ""
-            height              : playerHeight
-            width               : playerWidth
+            height              : buttonHeight
+            width               : buttonWidth
             buttonActiveColor   : color3
             buttonHoverColor    : color3
             buttonSelectedColor : color3
@@ -493,7 +495,7 @@ Screen {
             id                  : player1won
             buttonText          : "Winner ! "
             height              : winnerHeight
-            width               : playerWidth
+            width               : buttonWidth
             buttonActiveColor   : color1
             buttonHoverColor    : color1
             buttonSelectedColor : color1
@@ -505,7 +507,8 @@ Screen {
                 horizontalCenter: resetScores.horizontalCenter
             }
             pixelsizeoverride   : true
-           pixelsizeoverridesize: isNxt ? 50 : 40
+//           pixelsizeoverridesize: isNxt ? 50 : 40
+           pixelsizeoverridesize: isNxt ? 45 : 36
             visible             : player1Won
         }
 
@@ -523,8 +526,8 @@ Screen {
         YaLabel {
             id                  : player2
             buttonText          : ""
-            height              : playerHeight
-            width               : playerWidth
+            height              : buttonHeight
+            width               : buttonWidth
             buttonActiveColor   : color3
             buttonHoverColor    : color3
             buttonSelectedColor : color3
@@ -636,7 +639,7 @@ Screen {
             id                  : player2won
             buttonText          : "Winner ! "
             height              : winnerHeight
-            width               : playerWidth
+            width               : buttonWidth
             buttonActiveColor   : color2
             buttonHoverColor    : color2
             buttonSelectedColor : color2
@@ -648,7 +651,8 @@ Screen {
                 horizontalCenter: resetGame.horizontalCenter
             }
             pixelsizeoverride   : true
-           pixelsizeoverridesize: isNxt ? 50 : 40
+//           pixelsizeoverridesize: isNxt ? 50 : 40
+           pixelsizeoverridesize: isNxt ? 45 : 36
             visible             : player2Won
         }
 
@@ -666,8 +670,8 @@ Screen {
         YaLabel {
             id                  : resetScores
             buttonText          : "Reset Scores"
-            height              : playerHeight
-            width               : playerWidth
+            height              : buttonHeight
+            width               : buttonWidth
             buttonActiveColor   : color3
             buttonHoverColor    : color3
             buttonSelectedColor : color3
@@ -688,8 +692,8 @@ Screen {
         YaLabel {
             id                  : resetGame
             buttonText          : "Reset Game"
-            height              : playerHeight
-            width               : playerWidth
+            height              : buttonHeight
+            width               : buttonWidth
             buttonActiveColor   : color3
             buttonHoverColor    : color3
             buttonSelectedColor : color3
@@ -714,6 +718,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -732,6 +738,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -750,6 +758,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -768,6 +778,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -786,6 +798,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -804,6 +818,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -822,6 +838,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -840,6 +858,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -860,6 +880,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -878,6 +900,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -896,6 +920,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -914,6 +940,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -932,6 +960,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -950,6 +980,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -968,6 +1000,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -986,6 +1020,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1006,6 +1042,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1024,6 +1062,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1042,6 +1082,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1060,6 +1102,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1078,6 +1122,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1096,6 +1142,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1114,6 +1162,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1132,6 +1182,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1152,6 +1204,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1170,6 +1224,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1188,6 +1244,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1206,6 +1264,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1224,6 +1284,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1242,6 +1304,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1260,6 +1324,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1278,6 +1344,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1299,6 +1367,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1317,6 +1387,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1335,6 +1407,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1353,6 +1427,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1371,6 +1447,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1389,6 +1467,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1407,6 +1487,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1425,6 +1507,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1445,6 +1529,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1463,6 +1549,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1481,6 +1569,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1499,6 +1589,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1517,6 +1609,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1535,6 +1629,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1553,6 +1649,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1571,6 +1669,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1591,6 +1691,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1609,6 +1711,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1627,6 +1731,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1645,6 +1751,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1663,6 +1771,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1681,6 +1791,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1699,6 +1811,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1717,6 +1831,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1737,6 +1853,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1755,6 +1873,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1773,6 +1893,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1791,6 +1913,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1809,6 +1933,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1827,6 +1953,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1845,6 +1973,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true
@@ -1863,6 +1993,8 @@ Screen {
             buttonText          : ""
             height              : playFieldSize
             width               : playFieldSize
+            buttonActiveColor   : buttonSelectedColor
+            buttonHoverColor    : buttonSelectedColor
             buttonSelectedColor : (buttonText == "X" ) ? color1 : (buttonText == "B" ) ? color1 : (buttonText == "F" ) ? color2 : (buttonText == "0" ) ? color5 : "white"
             selected            : true
             enabled             : true

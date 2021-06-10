@@ -17,7 +17,7 @@ Screen {
 
 // ---------------------------------------------------------------------
 
-    property string me          : "Slide"
+    property string me          : "                                    Toon Slide\nSort the numbers 1..15 in rows from top to bottom."
     
     property string colortxt    : "black"
     property string color0      : "green"
@@ -27,11 +27,13 @@ Screen {
     property string color4      : "cyan"
 
     property int fieldHeight    : isNxt ? 110 : 88
-    property int fieldWidth     : isNxt ? 150 : 120
+    property int fieldWidth     : isNxt ? 110 : 88
 
     property int buttonHeight   : isNxt ? 40 : 32
-    property int buttonWidth    : isNxt ? 150 : 120
+//    property int buttonWidth    : isNxt ? 150 : 120
 
+    property int buttonWidth    : isNxt ? 200 : 160
+    
     property int margin         : isNxt ? 30 : 24
 
     property bool playing       : false

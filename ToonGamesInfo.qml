@@ -34,6 +34,8 @@ Screen {
     property string color3      : "lightgrey"
     property string color4      : "cyan"
 
+    property int margin         : isNxt ? 30 : 24
+
 // ---------------------------------------------------------------------
 
     Rectangle {
@@ -46,22 +48,21 @@ Screen {
         }
         color                   : color0
     
-// --------------------------------------------------------- ingfo field
+// --------------------------------------------------------- info field
 
         YaLabel {
             id                  : info
             buttonText          : 
 "
 Tic Tac Toe for 2 players, tic tac toe as you know it.\n
-Slide for 1 player, sort the numbers 1..15 in rows from top to bottom.\n
-Memory for 2 players, click 2 tiles and collect a pair or put back by clicking again.\n
-4 In A Row for 2 players, 4 in a row as you know it. Pick up coins and drop them in the rack.\n
-Hangman for 2 players, fill in 2 secret words and start guessing what is in the ****** text.\n
-Mines for 2 players, mines as you know it but for 2 players. Changes turn after guessing.\n
-Numbers for 1 player, make snakes of same numbers, collect and see what happens.\n 
-................................Games for 2 players let you enter names for the players.................................
+Slide, 1 player, sort the numbers 1..15 in rows from top to bottom.\n
+Memory, 2 players, click 2 tiles and collect a pair or put them back by clicking again.\n
+4 In A Row, 2 players, 4 in a row as you know it. Pick up coins and drop them in the rack.\n
+Hangman, 2 players, fill in 2 secret words and start guessing what is in the ****** text.\n
+Mines, 2 players, mines as you know it but for 2 players. Changes turn after guessing.\n
+Numbers, 1 player, collect snake of same numbers, last gets upgraded, others fall down.\n 
+............................Games for 2 players let you enter names for the players............................
 "
-            
             
             height              : parent.height - 20
             width               : parent.width - 40
@@ -80,6 +81,21 @@ Numbers for 1 player, make snakes of same numbers, collect and see what happens.
            onClicked            : { hide() }
         }
         
+// ---------------------------------------------------------------------
+
+        Image {
+            id                      : imgGames
+            anchors {
+                top                 : parent.top
+                right               : parent.right
+                topMargin           : isNxt ? 20 : 16
+                rightMargin         : isNxt ? 30 : 24
+            }        
+            source                  : "file:///qmf/qml/apps/toonGames/drawables/toonGames.png"
+            height                  : parent.height / 4
+            width                   : parent.height / 4
+        }
+
 // ---------------------------------------------------------------------
 
     }

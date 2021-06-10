@@ -204,7 +204,7 @@ Tile {
         id                      : game7
         buttonText              : "Numbers"
         height                  : gameHeight
-        width                   : gameWidth
+        width                   : isNxt ? gameWidth : gameWidth * 2
         buttonActiveColor       : buttonSelectedColor
         buttonHoverColor        : buttonSelectedColor
         buttonSelectedColor     : color3
@@ -224,7 +224,7 @@ Tile {
 
     YaLabel {
         id                      : game8
-        buttonText              : "Info"
+        buttonText              : "Balloon"
         height                  : gameHeight
         width                   : gameWidth
         buttonActiveColor       : buttonSelectedColor
@@ -239,10 +239,37 @@ Tile {
         }
         onClicked: {
             activeMe = false
+            stage.openFullscreen(app.toonGamesBalloonUrl);
+        }
+        visible                 : isNxt ? !dimState : false
+    }
+
+/*
+
+// when an odd number of games is on the tile I will use this to make it even ;-)
+
+    YaLabel {
+        id                      : gameinfo
+        buttonText              : "Info"
+        height                  : gameHeight
+        width                   : gameWidth
+        buttonActiveColor       : buttonSelectedColor
+        buttonHoverColor        : buttonSelectedColor
+        buttonSelectedColor     : color3
+        selected                : true
+        enabled                 : true
+        textColor               : colortxt
+        anchors {
+            top                 : game8.bottom
+            left                : game8.left
+        }
+        onClicked: {
+            activeMe = false
             stage.openFullscreen(app.toonGamesInfoUrl);
         }
         visible                 : !dimState
     }
+*/
 
 // ---------------------------------------------- rotating image on tile
 
