@@ -1,4 +1,4 @@
-1.1.0
+1.1.1
 - decrease rotating logo visible time on undimmed tile
 1.1.0
 - Balloon! for Toon 2, added by oepi-loepi
