@@ -20,7 +20,7 @@ Tile {
     property int rotateAngel    : 0
     
     property int removeCounter
-    property int removeLimit    : 60
+    property int removeLimit    : 10
 
 // ---------------------------------------------------------------------
     
@@ -37,7 +37,7 @@ Tile {
 
     Timer {
         id                      : controlTimer
-        interval                : dimState ? 2000 : 100;
+        interval                : dimState ? 3000 : 100;
         running                 : dimState || activeMe
         repeat                  : true
         onTriggered             : rotateImage()
