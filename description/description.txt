@@ -1,1 +1,1 @@
-8 Games : Tic Tac Toe, Slide, Memory, 4 in a Row, Hangman, Mines, Numbers and Balloon.
+Games for Toon : Tic Tac Toe, Slide, Memory, 4 in a Row, Hangman, Mines, Numbers and Balloon.

@@ -2,9 +2,8 @@
 
 import QtQuick 2.1
 
-
 Item {
-    id: melon
+    id: bottle
 
 // ---------------------------------------------------------------------
 //  the next disables collision detect while exploding
@@ -12,14 +11,14 @@ Item {
 // ---------------------------------------------------------------------
 
     property bool destroyed: false
+    property int bottlesize: randomNumber(3,7)
+    width: bottlesize * 24
+    height: bottlesize * 24
 
-        width: 240
-        height: 240
-
-
+    
     Item {
         id: sprite
-        property int frame:1
+        property int frame: randomNumber(0,7)
 
         anchors.centerIn: parent
 
@@ -56,10 +55,11 @@ Item {
 
         Image {
             id: spriteImage
-            source: "file:///qmf/qml/apps/toonGames/drawables/ToonGamesBalloonWatermelonSpritesheet.png"
+            source: "file:///qmf/qml/apps/toonGames/drawables/toonGamesBalloonWineSpritesheet.png"
             y: 0
-            x:-120-(240*sprite.frame)
-        }
+            x:-120 * bottlesize/5*sprite.frame
+            width: 960 *  bottlesize/5
+            height:120 * bottlesize/5        }
     }
 
     Timer {
@@ -67,23 +67,22 @@ Item {
         repeat: true;
         interval: 80;
         onTriggered: {
-// Toon 1 shorter explosion            if (sprite.frame == 9) {
-            if (sprite.frame == ( isNxt ? 9 : 7 ) ) {
-                gameScreen.score += 50;
+            if (sprite.frame == 7) {
+                gameScreen.score += 20;
                 animation.stop()
-                game.removeMelon(melon);
-                melon.destroy();
+                game.removeBottle(bottle);
+                bottle.destroy();
             }
+
             sprite.frame++;
         }
     }
 
     function explode() {
-        if (!destroyed) {
-            sprite.frame = 2;
-            animation.start();
-        }
-        destroyed = true;
+        gameScreen.score -= 5;
+        gameScreen.screenbroken = true
+        bottlesize = bottlesize / 2
+        speed = speed * 5
     }
 
     function randomNumber(from, to) {
@@ -91,7 +90,7 @@ Item {
     }
 
 // move a little bit faster on Toon 1 because Toon 1 is slower
-    property int speed: isNxt ? randomNumber(3, 8) : randomNumber(3, 8) * 2
+    property int speed: isNxt ? randomNumber(1, 4) : randomNumber(1, 4) * 2
 
     Timer {
         interval: 50
@@ -99,27 +98,27 @@ Item {
         repeat: true
 
         onTriggered: {
-            melon.y -= melon.speed;
+            bottle.y -= bottle.speed;
 
-            if (melon.y + melon.height < 0) {
-                game.removeMelon(melon);
-                melon.destroy();
+            if (bottle.y + bottle.height < 0) {
+                game.removeBottle(bottle);
+                bottle.destroy();
             }
 
             if (!exploding) {
 
                 var dart = game.getDartPosition();
 
-//              if       dart tip passed left side melon                 AND  dart tail before right side melon
-//                  AND  dart middle below melon top                     AND  dart middle above bolloon bottom
+//              if       dart tip passed left side bottle                 AND  dart tail before right side bottle
+//                  AND  dart middle below bottle top                     AND  dart middle above bolloon bottom
 
-                var melonHeartX = melon.x + melon.width  / 2
-                var melonHeartY = melon.y + melon.height / 2
+                var bottleHeartX = bottle.x + bottle.width  / 2
+                var bottleHeartY = bottle.y + bottle.height / 2
 
-                var hitRadius = melon.width / 6
+                var hitRadius = bottle.width / 2
 
-                if     ( ( ( dart.x + dart.width )          > ( melonHeartX - hitRadius ) )  && (   dart.x                         < ( melonHeartX + hitRadius ) ) ) {
-                    if ( ( ( dart.y + ( dart.height / 2 ) ) > ( melonHeartY - hitRadius ) )  && ( ( dart.y + ( dart.height / 2 ) ) < ( melonHeartY + hitRadius ) ) ) {
+                if     ( ( ( dart.x + dart.width )          > ( bottleHeartX - hitRadius ) )  && (   dart.x                         < ( bottleHeartX + hitRadius ) ) ) {
+                    if ( ( ( dart.y + ( dart.height / 2 ) ) > ( bottleHeartY - hitRadius ) )  && ( ( dart.y + ( dart.height / 2 ) ) < ( bottleHeartY + hitRadius ) ) ) {
                         exploding = true
                         explode()
                     }

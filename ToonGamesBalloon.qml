@@ -11,12 +11,14 @@ Screen {
     screenTitle: "Toon Balloon"
     property int dartcounter : 12
 	property bool activeMe : false
+    property bool screenbroken
 	property int score: 0
 	property string scoreText : ""
 	
 	onVisibleChanged: {
 		if (visible) {
             activeMe = true
+            createBottle.start()
         } else { 
             activeMe = false
         }
@@ -30,7 +32,7 @@ Screen {
     function randomNumber(from, to) {
         return Math.floor(Math.random() * (to - from + 1) + from);
     }
-
+    
     Rectangle {
         id: game
         width: parent.width
@@ -75,7 +77,7 @@ Screen {
                 anchors.margins: isNxt? 10:8
                 text: "Up"
                 font.family: qfont.regular.name
-                font.pointSize: isNxt? 10 : 8
+                font.pixelSize: isNxt? 20 : 16 
             }
         }
 
@@ -103,7 +105,7 @@ Screen {
                 anchors.margins: isNxt? 10 : 8
                 text: "Down"
                 font.family: qfont.regular.name
-                font.pointSize: isNxt? 10 : 8
+                font.pixelSize: isNxt? 20 : 16 
             }
         }
 
@@ -112,7 +114,7 @@ Screen {
             x: isNxt? 10: 8
             y: isNxt? 300 : 240
             width: isNxt? 120 :96
-            height:  isNxt? 30 :24
+            height:  isNxt? 60 : 48
             color: "red"
             radius: isNxt? 16 : 12
             MouseArea {
@@ -136,7 +138,7 @@ Screen {
                 anchors.margins: isNxt? 10 : 8
                 text: "Fire"
 				font.family: qfont.regular.name
-                font.pointSize: isNxt? 10 : 8
+                font.pixelSize: isNxt? 20 : 16 
             }
         }
 
@@ -144,46 +146,74 @@ Screen {
             GameLogic.balloons.splice(GameLogic.balloons.indexOf(balloon), 1);
         }
 
-        function removemelon(melon) {
+        function removeMelon(melon) {
             GameLogic.melons.splice(GameLogic.melons.indexOf(melon), 1);
         }
 
+        function removeBottle(bottle) {
+            GameLogic.bottles.splice(GameLogic.bottles.indexOf(bottle), 1);
+            createBottle.start()
+        }
 		
-	function newArrow() {
+        function newArrow() {
             coolDown.start();
         }
 
         function getDartPosition() {
-            return { x: dart.x, y: dart.y }
+            return { x: dart.x, y: dart.y, width: dart.width, height: dart.height }
         }
 
+// generate balloons
+
         Timer {
-            interval:  isNxt? 4000 :12000
+            interval:  2000
             repeat: true
-            running: true
+            running: activeMe
             onTriggered: {
-				if ( activeMe){
-					var component = Qt.createComponent("ToonGamesBalloonBalloon.qml");
-					var balloon = component.createObject(game);
-					balloon.x = randomNumber(200, game.width);
-					balloon.y = game.height;
-					GameLogic.balloons.push(balloon);
-				}
+// limit number of balloons to 5
+                if (GameLogic.balloons.length < 5) {
+                    var component = Qt.createComponent("ToonGamesBalloonBalloon.qml");
+                    var balloon = component.createObject(game);
+                    balloon.x = randomNumber(200, game.width - balloon.width);
+                    balloon.y = game.height;
+                    GameLogic.balloons.push(balloon);
+                }
             }
         }
 
+// generate melons
+
         Timer {
-            interval:  isNxt? 9000 :17000
+            interval: 8000
             repeat: true
-            running: true
+            running: activeMe
             onTriggered: {
-				if ( activeMe){
-					var component = Qt.createComponent("ToonGamesBalloonMelon.qml");
-					var melon = component.createObject(game);
-					melon.x = randomNumber(200, game.width);
-					melon.y = game.height;
-					GameLogic.melons.push(melon);
-				}
+// limit number of melons to 1
+                if ( GameLogic.melons.length < 1 ) {
+                    var component = Qt.createComponent("ToonGamesBalloonMelon.qml");
+                    var melon = component.createObject(game);
+                    melon.x = randomNumber(200, game.width - melon.width);
+                    melon.y = game.height;
+                    GameLogic.melons.push(melon);
+                }
+            }
+        }
+
+// bottle, actually bottles and glasses, timer starts after app start and after bottle disappears from screen
+
+        Timer {
+            id: createBottle
+            interval: 10000
+            onTriggered: {
+// limit number of bottles to 1 and when screen broken wait some more before repair and new bottle
+                if ( GameLogic.bottles.length < 1 ) {
+                    screenbroken = false
+                    var component = Qt.createComponent("ToonGamesBalloonBottle.qml");
+                    var bottle = component.createObject(game);
+                    bottle.x = randomNumber(600, game.width - bottle.width);
+                    bottle.y = game.height;
+                    GameLogic.bottles.push(bottle);
+                }
             }
         }
 
@@ -195,8 +225,6 @@ Screen {
 
         // Dart animations
         Timer { id: coolDown; interval: 10; onTriggered: { dart.x = 0;isNxt? dart.y = 200 + randomNumber(0, 200):dart.y = 160 + randomNumber(0, 160) ; } }
-        Timer { id: goUp; repeat: true; interval: 12; onTriggered: { dart.y -= 5; } }
-        Timer { id: goDown; repeat: true; interval: 12; onTriggered: { dart.y += 5; } }
 
         ParallelAnimation {
             id: fire
@@ -212,14 +240,10 @@ Screen {
 					dartcounter = 12;
 					toolBar.paintDart();
 					gameScreen.score = 0;
+                    screenbroken = false
 				}
 			}
-
         }
-		
-		
-
-        Timer { repeat: true; interval: 60; running: true; onTriggered: GameLogic.collisionDetect() }
 
         Rectangle {
             id: scoreBar
@@ -234,8 +258,20 @@ Screen {
                 anchors.rightMargin:  isNxt? 10:8
                 text: "Score:" + gameScreen.score
 				font.family: qfont.regular.name
-                font.pointSize: isNxt? 14 : 10
+                font.pixelSize: isNxt?  25: 20
             }
+        }
+    }
+
+// when you shoot a bottle your Toon screen breaks and is repaired when next bottle appears
+
+    Rectangle {
+        x: isNxt ? 0 : 200
+        y: isNxt ? -75 : -50
+        Image {
+            source: isNxt ? "file:///qmf/qml/apps/toonGames/drawables/toonGamesBalloonbroken_T2.png" 
+                          : "file:///qmf/qml/apps/toonGames/drawables/toonGamesBalloonbroken_T1.png"
+            visible: screenbroken
         }
     }
 }
