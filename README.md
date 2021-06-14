@@ -14,7 +14,7 @@ There are several good reasons :
     - Hangman
     - Mines
     - Numbers
-    - Popping balloons ( available on Toon 2 only )
+    - Popping balloons, melons, ....
  - and more
  
 The reasons you would NOT want this app :
@@ -29,10 +29,10 @@ You can install this app manually without ToonStore :
  - On your Toon go to /qmf/qml/apps and create a folder toonGames.
  - In that folder you put at least the qml files and the drawables folder.
  - Restart the GUI. ( On your Toon go to > Settings > TSC > Restart GUI )
- - After that you can add a tile named 'Toon Games'
+ - After that you can add a tile named 'Toon Games'.
 
 Special thanks to :
 
- - Oepi-loepi for contributing the Balloon game
+ - Oepi-loepi for contributing the Balloon game and allowing me to extend it.
  
 Thanks for reading and enjoy.

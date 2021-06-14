@@ -13,7 +13,6 @@ Screen {
         fillMode: Image.PreserveAspectCrop
     }
 
-
     Rectangle {
         id: menuScreen
         width:  isNxt? 400 :320
@@ -35,7 +34,6 @@ Screen {
                 horizontalCenter: parent.horizontalCenter;
                 verticalCenter: parent.verticalCenter;}
 
-
             Text {
                 id:gameName
                 x: 0
@@ -48,7 +46,7 @@ Screen {
                 text: "Balloon!"
                 anchors.verticalCenterOffset: isNxt? -140 :-112
                 font.family: qfont.regular.name
-                font.pointSize: isNxt? 60 : 48
+                font.pixelSize: isNxt? 60 : 48
             }
 			
 			Text {
@@ -63,7 +61,7 @@ Screen {
                 text: gameScreen.scoreText
                 anchors.verticalCenterOffset: isNxt? -20 :-16
                 font.family: qfont.regular.name
-                font.pointSize: isNxt? 20 : 16
+                font.pixelSize: isNxt? 20 : 16
             }
 			
         }
@@ -97,7 +95,7 @@ Screen {
                 anchors.margins: 10
                 text: "New Game"
 		        font.family: qfont.regular.name
-                font.pointSize: isNxt? 10 : 8            
+                font.pixelSize: isNxt? 20 : 16            
 			}
         }
     }

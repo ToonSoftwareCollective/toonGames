@@ -1,3 +1,7 @@
+1.1.2
+- Balloon tuned for performance on Toon 1
+- added bottles and glasses
+- changed logo to grey scales
 1.1.1
 - decrease rotating logo visible time on undimmed tile
 1.1.0

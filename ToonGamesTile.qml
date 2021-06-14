@@ -20,7 +20,7 @@ Tile {
     property int rotateAngel    : 0
     
     property int removeCounter
-    property int removeLimit    : 10
+    property int removeLimit    : 15
 
 // ---------------------------------------------------------------------
     
@@ -37,9 +37,10 @@ Tile {
 
     Timer {
         id                      : controlTimer
-        interval                : dimState ? 3000 : 100;
+        interval                : dimState ? 10000 : 100;
         running                 : dimState || activeMe
         repeat                  : true
+        triggeredOnStart        : true
         onTriggered             : rotateImage()
     }  
 
@@ -204,7 +205,8 @@ Tile {
         id                      : game7
         buttonText              : "Numbers"
         height                  : gameHeight
-        width                   : isNxt ? gameWidth : gameWidth * 2
+//        width                   : isNxt ? gameWidth : gameWidth * 2
+        width                   : gameWidth
         buttonActiveColor       : buttonSelectedColor
         buttonHoverColor        : buttonSelectedColor
         buttonSelectedColor     : color3
@@ -241,7 +243,8 @@ Tile {
             activeMe = false
             stage.openFullscreen(app.toonGamesBalloonUrl);
         }
-        visible                 : isNxt ? !dimState : false
+//        visible                 : isNxt ? !dimState : false
+        visible                 : !dimState
     }
 
 /*

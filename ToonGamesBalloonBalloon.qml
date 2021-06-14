@@ -5,6 +5,11 @@ import QtQuick 2.1
 Item {
     id: balloon
 
+// ---------------------------------------------------------------------
+//  the next disables collision detect while exploding
+    property bool exploding : false
+// ---------------------------------------------------------------------
+
     property bool destroyed: false
     property int balloonsize: randomNumber(3,7)
     width: balloonsize * 24
@@ -37,7 +42,8 @@ Item {
         }
 
         Timer {
-            running: true
+// only shake on Toon 2
+            running: isNxt
             repeat: true
             interval: 800
 
@@ -63,6 +69,7 @@ Item {
             if (sprite.frame == 7) {
                 gameScreen.score += 20;
                 animation.stop()
+                game.removeBalloon(balloon);
                 balloon.destroy();
             }
 
@@ -82,7 +89,8 @@ Item {
        return Math.floor(Math.random() * (to - from + 1) + from);
     }
 
-    property int speed: randomNumber(1, 4)
+// move a little bit faster on Toon 1 because Toon 1 is slower
+    property int speed: isNxt ? randomNumber(1, 4) : randomNumber(1, 4) * 2
 
     Timer {
         interval: 50
@@ -95,6 +103,26 @@ Item {
             if (balloon.y + balloon.height < 0) {
                 game.removeBalloon(balloon);
                 balloon.destroy();
+            }
+
+            if (!exploding) {
+
+                var dart = game.getDartPosition();
+
+//              if       dart tip passed left side balloon                 AND  dart tail before right side balloon
+//                  AND  dart middle below balloon top                     AND  dart middle above bolloon bottom
+
+                var balloonHeartX = balloon.x + balloon.width  / 2
+                var balloonHeartY = balloon.y + balloon.height / 2
+
+                var hitRadius = balloon.width / 2.5
+
+                if     ( ( ( dart.x + dart.width )          > ( balloonHeartX - hitRadius ) )  && (   dart.x                         < ( balloonHeartX + hitRadius ) ) ) {
+                    if ( ( ( dart.y + ( dart.height / 2 ) ) > ( balloonHeartY - hitRadius ) )  && ( ( dart.y + ( dart.height / 2 ) ) < ( balloonHeartY + hitRadius ) ) ) {
+                        exploding = true
+                        explode()
+                    }
+                }
             }
         }
     }
